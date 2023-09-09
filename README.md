@@ -1,8 +1,7 @@
 # 👩🏻‍💻 1일 1알고리즘 👩🏻‍💻
 
 <strong>Start</strong>  2023.09.09
-
-<br><br>
+<br>
 ## 📆 Calendar
 ### 9월 
 |Mon|	Tue|	Wen|	Thur|	Fri	|Sat |Sun|

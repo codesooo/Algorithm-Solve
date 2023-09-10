@@ -29,7 +29,7 @@
 ---
 
 ### 🤔 key point
-<strong>두 list의 중복 값을 찾는 방법</strong> <br>
+<strong>✏️ 두 list의 중복 값을 찾는 방법</strong> <br>
 각각 집합 자료형으로 형변환하여 교집합을 찾으면 쉽다. (list -> set)
 & 연산자로 간단하게 교집합을 찾을 수 있다.
 ```

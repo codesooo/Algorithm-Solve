@@ -44,7 +44,7 @@
 반복문으로 여러 줄을 입력받을 때는 `sys.stdin.readline()`을 사용해야 시간 초과가 발생하지 않는다.
 
 ##### 정수 1개 입력받을 때
-```
+```python3
 import sys
 num = int(sys.stdin.readline())
 ```

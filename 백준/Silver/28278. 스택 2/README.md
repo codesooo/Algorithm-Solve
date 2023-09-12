@@ -48,3 +48,9 @@
 import sys
 num = int(sys.stdin.readline())
 ```
+
+##### 정수 여러개 입력받을 때
+```python3
+import sys
+data = list(map(int,sys.stdin.readline().split))
+```

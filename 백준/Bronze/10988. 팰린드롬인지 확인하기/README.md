@@ -37,3 +37,22 @@
 print(5/2)  # 출력 : 2.5
 print(5//2) # 출력 : 2
 ```
+### 문자열 뒤집기
+파이썬에서 문자열을 거꾸로 뒤집고 싶을 때 `"".join(reversed(문자열))`를 사용한다.
+```python3
+s = 'codesooo'
+re_s = "".join(reversed(s))
+print(re_s)
+# 출력 : ooosedoc
+```
+
+---
+### 👩‍💻 수정한 코드
+```python3
+s = input()
+re_s = "".join(reversed(s))
+if s == re_s :
+    print(1)
+else:
+    print(0)
+```

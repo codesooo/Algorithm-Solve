@@ -38,12 +38,33 @@ print(5/2)  # 출력 : 2.5
 print(5//2) # 출력 : 2
 ```
 ### 문자열 뒤집기
-파이썬에서 문자열을 거꾸로 뒤집고 싶을 때 `"".join(reversed(문자열))`를 사용한다.
+파이썬에서 문자열을 거꾸로 뒤집고 싶을 때 사용할 수 있는 방법
+
+#### "".join(reversed(문자열))
+
 ```python3
 s = 'codesooo'
 re_s = "".join(reversed(s))
 print(re_s)
 # 출력 : ooosedoc
+```
+
+#### 슬라이싱
+문자열 슬라이싱을 이용한다.
+```python3
+s = 'codesooo'
+print(s[::-1])
+# 출력 : ooosedoc
+```
+
+#### list로 변환하여 뒤집기
+list 타입에서 제공하는 함수인 reverse()는 list 내의 요소를 역순으로 정렬해준다. 따라서 문자열을 list로 변환하여 reverse()를 적용해주면 된다. 그리고 문자열로 출력하고 싶다면 join함수를 이용하여 `list->문자열`로 변환해주면 된다.
+```python3
+s = 'codesooo'
+s_list = list(s)
+s_list.reverse()
+print(s_list)           # 출력 : ['o', 'o', 'o', 's', 'e', 'd', 'o', 'c']
+print("".join(s_list))  # 출력 : ooosedoc
 ```
 
 ---

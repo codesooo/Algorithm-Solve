@@ -37,18 +37,10 @@ public class Main {
             for(int k=0;k<4;k++){
                 int x = now[0] + dx[k];
                 int y = now[1] + dy[k];
-
                 if(x>=0 && y>=0 && x < N && y < M ){
                     if (!visited[x][y] && A[x][y]!=0){
                         visited[x][y] = true;
                         A[x][y] = A[now[0]][now[1]] + 1;
                         queue.add(new int[] {x,y});
-                    }
-                }
-            }
-
-        }
-
-
-    }
+                    }                }            }       }   }
 }

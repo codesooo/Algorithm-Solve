@@ -2,23 +2,23 @@ import java.util.*;
 class Solution {
     public int solution(int[] scoville, int K) {
         int answer = 0;
-        PriorityQueue<Integer> scovilleList = new PriorityQueue<>();
-        for(int s : scoville){  // scoville배열 List화하기
-            scovilleList.offer(s);
+        PriorityQueue<Integer> pQ = new PriorityQueue<>();
+        for(int s : scoville){
+            pQ.offer(s);
+        }
+        while(!pQ.isEmpty() && pQ.size() >= 2){
+            if(pQ.peek() >= K){
+                break;
+            }
+            int new_s = pQ.poll() + (pQ.poll() * 2);
+            pQ.offer(new_s);
+            answer++;
         }
         
-        while(scovilleList.peek() < K){
-            if(scovilleList.size() == 1){
-                return -1;
-            }
-            int s1 = scovilleList.poll();
-            int s2 = scovilleList.poll();
-            int new_s = s1 + (s2 * 2);
-            
-            scovilleList.offer(new_s);
-            answer++;
-
+        if(pQ.peek() < K){
+            answer = -1;
         }
+        
         return answer;
     }
 }

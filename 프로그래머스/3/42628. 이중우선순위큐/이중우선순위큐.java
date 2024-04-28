@@ -5,31 +5,32 @@ class Solution {
         PriorityQueue<Integer> maxPQ = new PriorityQueue<>(Collections.reverseOrder());
         PriorityQueue<Integer> minPQ = new PriorityQueue<>();
         
-        for(String s : operations){
-            if(s.equals("D 1")){
-                if(!maxPQ.isEmpty()){
-                    int max = maxPQ.poll();
-                    minPQ.remove(max);
+        for(String op : operations){
+            if (op.equals("D 1")){
+                if(maxPQ.isEmpty()){
+                    continue;
                 }
-            } else if(s.equals("D -1")){
-                if(!maxPQ.isEmpty()){
-                    int min = minPQ.poll();
-                    maxPQ.remove(min);
+                int max = maxPQ.poll();
+                minPQ.remove(max);
+            } else if (op.equals("D -1")){
+                if(maxPQ.isEmpty()){
+                    continue;
                 }
-            } else{
-                int num = Integer.parseInt(s.substring(2));
-                maxPQ.offer(num);
-                minPQ.offer(num); 
+                int min = minPQ.poll();
+                maxPQ.remove(min);
+                
+            }
+            else {
+                maxPQ.offer(Integer.parseInt(op.substring(2)));
+                minPQ.offer(Integer.parseInt(op.substring(2)));
             }
         }
         
-        if(maxPQ.isEmpty()){
-            answer[0] = 0;
-            answer[1] = 0;
-        } else{
-            answer[0] = maxPQ.poll();
-            answer[1] = minPQ.poll();
+        if(!maxPQ.isEmpty()) {
+            answer[0] = maxPQ.peek();
+            answer[1] = minPQ.peek(); 
         }
+        
         
         return answer;
     }

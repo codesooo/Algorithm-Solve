@@ -1,20 +1,25 @@
 class Solution {
-    static int cnt;
+    static int[] arr;
+    static int goal;
+    static int answer=0;
     public int solution(int[] numbers, int target) {
-        int answer = 0;
-        DFS(numbers, target, 0, 0);
-        answer = cnt;
+        arr = numbers;
+        goal = target;
+        dfs(0,0);
+        
         return answer;
     }
-    public void DFS(int[] numbers, int target, int depth, int sum){
-        if(depth == numbers.length){
-            if(sum == target){
-                cnt++;
+    public static void dfs(int index, int sum){
+        if(index == arr.length){
+            if(sum == goal){
+                answer++;
             }
             return;
         }
         
-        DFS(numbers, target, depth+1, sum + numbers[depth]);
-        DFS(numbers, target, depth+1, sum - numbers[depth]);
+        dfs(index+1, sum + arr[index]);
+        dfs(index+1, sum - arr[index]);
+        
     }
+    
 }

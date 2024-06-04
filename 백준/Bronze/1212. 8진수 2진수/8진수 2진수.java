@@ -9,7 +9,17 @@ public class Main {
         // 구현
         StringBuilder sb = new StringBuilder();
         int num_1 = s.charAt(0) - '0';
-        sb.append(Integer.toBinaryString(num_1));
+        if(num_1 == 0){
+            sb.append("0");
+        } else if (num_1 == 1) {
+            sb.append("1");
+        } else if (num_1 == 2) {
+            sb.append("10");
+        } else if (num_1 == 3) {
+            sb.append("11");
+        } else {
+            sb.append(octalToBinary[num_1]);
+        }
         for (int i = 1; i < s.length(); i++) {
             int num = s.charAt(i) - '0';
             sb.append(octalToBinary[num]);

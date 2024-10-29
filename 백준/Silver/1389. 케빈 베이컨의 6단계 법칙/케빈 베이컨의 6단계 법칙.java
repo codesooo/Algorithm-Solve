@@ -1,6 +1,5 @@
 import java.io.*;
 import java.util.*;
-
 public class Main {
     private static int N, M;
     private static int[][] d;
@@ -14,8 +13,7 @@ public class Main {
     }
 
     private static int getAnswer() {
-        int minSum = Integer.MAX_VALUE;
-        int minNum = 0;
+        int minSum = Integer.MAX_VALUE, minNum = 0;
         for (int i = 1; i <= N; i++) {
             int sum = 0;
             for (int j = 1; j <= N; j++) {
@@ -24,23 +22,13 @@ public class Main {
             if (minSum > sum) {
                 minSum = sum;
                 minNum = i;
-            } else if (minSum == sum) {
-                minNum = Math.min(minNum, i);
+            }
+            if (minSum == sum) {
+                minNum = Math.min(i, minNum);
             }
         }
-        return minNum;
-    }
 
-    private static void solution() {
-        for (int k = 1; k <= N; k++) {
-            for (int i = 1; i <= N; i++) {
-                for (int j = 1; j <= N; j++) {
-                    if (d[i][j] > d[i][k] + d[k][j]) {
-                        d[i][j] = d[i][k] + d[k][j];
-                    }
-                }
-            }
-        }
+        return minNum;
     }
 
     private static void input() throws IOException {
@@ -51,6 +39,7 @@ public class Main {
         M = Integer.parseInt(st.nextToken());
 
         d = new int[N + 1][N + 1];
+
         for (int i = 1; i <= N; i++) {
             for (int j = 1; j <= N; j++) {
                 if (i == j) {
@@ -64,8 +53,21 @@ public class Main {
             st = new StringTokenizer(br.readLine());
             int A = Integer.parseInt(st.nextToken());
             int B = Integer.parseInt(st.nextToken());
+
             d[A][B] = 1;
             d[B][A] = 1;
+        }
+    }
+
+    private static void solution() {
+        for (int k = 1; k <= N; k++) {
+            for (int i = 1; i <= N; i++) {
+                for (int j = 1; j <= N; j++) {
+                    if (d[i][j] > d[i][k] + d[k][j]) {
+                        d[i][j] = d[i][k] + d[k][j];
+                    }
+                }
+            }
         }
     }
 }
